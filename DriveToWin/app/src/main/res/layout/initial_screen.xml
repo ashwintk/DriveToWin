@@ -36,7 +36,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:id="@+id/aaa_logo"
-        android:src="@drawable/AAA"
+        android:src="@drawable/aaa_logo"
         android:contentDescription="@string/aaa_logo_description"
         android:layout_marginLeft="29dp"
         android:layout_marginStart="29dp"
@@ -48,21 +48,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/aaa_user_login_btn"
-        android:id="@+id/button"
+        android:id="@+id/login_btn"
         android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
+        android:layout_alignRight="@+id/get_aaa_membership_btn"
+        android:layout_alignEnd="@+id/get_aaa_membership_btn"
+        android:layout_alignLeft="@+id/get_aaa_membership_btn"
+        android:layout_alignStart="@+id/get_aaa_membership_btn"
         android:onClick="userLogin"/>
+
+    <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/get_aaa_membership_btn"
+    android:id="@+id/get_aaa_membership_btn"
+    android:layout_below="@+id/login_btn"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="36dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login_as_guest_btn"
-        android:id="@+id/button2"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp" />
+        android:id="@+id/login_as_guest_btn"
+        android:layout_below="@+id/get_aaa_membership_btn"
+        android:layout_marginTop="36dp"
+        android:layout_alignRight="@+id/get_aaa_membership_btn"
+        android:layout_alignEnd="@+id/get_aaa_membership_btn"
+        android:layout_alignLeft="@+id/get_aaa_membership_btn"
+        android:layout_alignStart="@+id/get_aaa_membership_btn"
+        android:onClick="get_aaa_membership"/>
 
 </RelativeLayout>

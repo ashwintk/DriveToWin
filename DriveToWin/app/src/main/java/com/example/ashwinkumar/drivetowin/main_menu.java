@@ -1,29 +1,24 @@
 package com.example.ashwinkumar.drivetowin;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.net.Uri;
-import android.widget.Toast;
 
 
-public class initial_screen extends ActionBarActivity {
+public class main_menu extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.initial_screen);
+        setContentView(R.layout.activity_main_menu);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+        getMenuInflater().inflate(R.menu.menu_main_menu, menu);
         return true;
     }
 
@@ -40,21 +35,5 @@ public class initial_screen extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-    public void userLogin (View v){
-        Intent intent = new Intent(this, aaa_user_login.class);
-        startActivity(intent);
-    }
-
-    public void get_aaa_membership(View v){
-        String url = "http://www.yahoo.com";
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        Uri u = Uri.parse(url);
-        try{
-            i.setData(u);
-            startActivity(i);
-        }catch(Exception e){
-            Toast.makeText(this, "Browser not found.", Toast.LENGTH_SHORT);
-        }
     }
 }

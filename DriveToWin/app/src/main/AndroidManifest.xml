@@ -32,6 +32,10 @@
             android:name=".user_registration_3"
             android:label="@string/title_activity_user_registration_3" >
         </activity>
+        <activity
+            android:name=".main_menu"
+            android:label="@string/title_activity_main_menu" >
+        </activity>
     </application>
 
 </manifest>

@@ -6,12 +6,17 @@
     <string name="title_activity_user_registration">user_registration</string>
     <string name="title_activity_aaa_user_login">aaa_user_login</string>
     <string name="title_activity_user_registration_2">user_registration_2</string>
+    <string name="title_activity_main_menu">main_menu</string>
+
+
     <string name="app_name_formatted">Drive To Win !!!</string>
     <string name="powered_by">Powered by</string>
     <string name="aaa_logo_description">AAA Logo</string>
     <string name="aaa_user_login_btn">AAA User Login</string>
-    <string name="login_as_guest_btn">Get AAA Membership</string>
+    <string name="get_aaa_membership_btn">Get AAA Membership</string>
+    <string name="login_as_guest_btn">Login as Guest</string>
     <string name="login_btn_lbl">Login</string>
+    <string name="add_emergency_contact_btn">Add Emergency Contact</string>
     <string name="login_email_hint">Enter E-mail Address</string>
     <string name="login_pwd_hint">Enter Password</string>
     <string name="first_name_hint">Enter First Name</string>
