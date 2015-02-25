@@ -1,15 +1,13 @@
 package com.example.ashwinkumar.drivetowin;
 
-import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.net.Uri;
 import android.widget.Toast;
-
 
 public class initial_screen extends ActionBarActivity {
 
@@ -18,7 +16,6 @@ public class initial_screen extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.initial_screen);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -33,7 +30,6 @@ public class initial_screen extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -47,14 +43,19 @@ public class initial_screen extends ActionBarActivity {
     }
 
     public void get_aaa_membership(View v){
-        String url = "http://www.yahoo.com";
+        String url = "http://www.aaa.com";
         Intent i = new Intent(Intent.ACTION_VIEW);
         Uri u = Uri.parse(url);
         try{
             i.setData(u);
             startActivity(i);
         }catch(Exception e){
-            Toast.makeText(this, "Browser not found.", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "Browser not found.", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void sign_in_in_as_guest(View v){
+        Intent intent = new Intent(this,user_registration.class);
+        startActivity(intent);
     }
 }

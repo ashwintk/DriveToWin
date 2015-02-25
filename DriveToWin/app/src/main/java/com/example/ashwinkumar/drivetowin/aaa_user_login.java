@@ -1,9 +1,11 @@
 package com.example.ashwinkumar.drivetowin;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class aaa_user_login extends ActionBarActivity {
@@ -35,5 +37,10 @@ public class aaa_user_login extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void login_btn_pressed(View view){
+        Intent intent = new Intent(this, main_menu.class);
+        startActivity(intent);
     }
 }
