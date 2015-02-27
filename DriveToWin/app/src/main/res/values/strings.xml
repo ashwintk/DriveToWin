@@ -34,5 +34,8 @@
     <string name="title_activity_user_registration_3">user_registration_3</string>
     <string name="hello_world">Hello world!</string>
     <string name="car_tag">Enter Tag #</string>
+    <string name="policy_number">Enter Your Insurance Policy #</string>
+    <string name="claim_number">Enter Claim Phone #</string>
     <string name="terms_text">By signing up, you accpet the terms and conditions of the application</string>
+    <string name="title_activity_emergency_contacts">EmergencyContacts</string>
 </resources>

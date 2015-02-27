@@ -36,6 +36,10 @@
             android:name=".main_menu"
             android:label="@string/title_activity_main_menu" >
         </activity>
+        <activity
+            android:name=".EmergencyContacts"
+            android:label="@string/title_activity_emergency_contacts" >
+        </activity>
     </application>
 
 </manifest>

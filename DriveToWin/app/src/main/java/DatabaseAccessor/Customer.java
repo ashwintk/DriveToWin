@@ -1,9 +1,11 @@
 package DatabaseAccessor;
-import java.security.*;
+
+import java.security.MessageDigest;
+
 /**
- * Created by Ashwin Kumar on 25-02-2015.
+ * Created by Ashwin Kumar on 26-02-2015.
  */
-class Customer {
+public class Customer {
     private String DEVICE_ID;
     private String FIRST_NAME;
     private String LAST_NAME;
@@ -15,7 +17,8 @@ class Customer {
     private String CAR_MODEL;
     private String VIN_NUMBER;
     private String CAR_TAG;
-
+    private String POLICY_NUMBER;
+    private String CLAIM_NUMBER;
     public Customer(){
         this.DEVICE_ID="";
         this.FIRST_NAME="";
@@ -29,7 +32,6 @@ class Customer {
         this.VIN_NUMBER="";
         this.CAR_YEAR="";
     }
-
     public void Set_DEVICE_ID(String str){this.DEVICE_ID=str;}
     public String Get_DEVICE_ID(){return this.DEVICE_ID;}
     public void Set_FIRST_NAME(String str){this.FIRST_NAME=str;}
@@ -50,32 +52,10 @@ class Customer {
     public String Get_VIN_NUMBER(){return this.VIN_NUMBER;}
     public void Set_CAR_YEAR(String str){this.CAR_YEAR=str;}
     public String Get_CAR_YEAR(){return this.CAR_YEAR;}
-    public void Set_PASSWORD(String str){
-        try{
-            byte[] bytesOfMessage = str.getBytes("UTF-8");
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] thedigest = md.digest(bytesOfMessage);
-            this.PASSWORD=thedigest.toString();
-        }catch(Exception e){
-            this.PASSWORD=null;
-        }
-    }
+    public void Set_PASSWORD(String str){this.PASSWORD=str;}
     public String Get_PASSWORD(){return this.PASSWORD;}
-}
-
-class EmergencyContacts{
-    private String NAME;
-    private String E_MAIL;
-    private String PHONE_NUMBER;
-    public EmergencyContacts(){
-        this.NAME="";
-        this.E_MAIL="";
-        this.PHONE_NUMBER="";
-    }
-    public void Set_NAME(String str){this.NAME=str;}
-    public String Get_NAME(){return this.NAME;}
-    public void Set_E_MAIL(String str){this.E_MAIL=str;}
-    public String Get_E_MAIL(){return this.E_MAIL;}
-    public void Set_PHONE_NUMBER(String str){this.PHONE_NUMBER=str;}
-    public String Get_PHONE_NUMBER(){return this.PHONE_NUMBER;}
+    public void Set_POLICY_NUMBER(String str){this.POLICY_NUMBER=str;}
+    public String Get_POLICY_NUMBER(){return this.POLICY_NUMBER;}
+    public void Set_CLAIM_NUMBER(String str){this.CLAIM_NUMBER=str;}
+    public String Get_CLAIM_NUMBER(){return this.CLAIM_NUMBER;}
 }
