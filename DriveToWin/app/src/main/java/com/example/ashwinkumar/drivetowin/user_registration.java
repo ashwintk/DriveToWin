@@ -3,16 +3,14 @@ package com.example.ashwinkumar.drivetowin;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-
 import java.security.MessageDigest;
-
-import DatabaseAccessor.*;
+import DatabaseAccessor.Customer;
 
 public class user_registration extends ActionBarActivity {
 
@@ -49,14 +47,14 @@ public class user_registration extends ActionBarActivity {
     }
     /*Button action when next button is pressed*/
     public void NextButtonPressed_Registration_1(View v){
-        Customer cust = new Customer();
+        Customer customer=new Customer();
         boolean flag= false;
         String message ="Please correct the following errors.";
         /*Get Entered First Name*/
         EditText text_box = (EditText) findViewById(R.id.first_name_txt);
         String temp = text_box.getText().toString();
         if(temp.length()!=0){
-            cust.Set_FIRST_NAME(temp.trim());
+            customer.Set_FIRST_NAME(temp.trim());
         }else{
             flag=false;
             message=message.concat("First Name should not be blank. ");
@@ -65,7 +63,7 @@ public class user_registration extends ActionBarActivity {
         text_box = (EditText) findViewById(R.id.last_name_txt);
         temp = text_box.getText().toString();
         if(temp.length()!=0){
-            cust.Set_LAST_NAME(temp.trim());
+            customer.Set_LAST_NAME(temp.trim());
         }else{
             flag=false;
             message=message.concat("Last Name should not be blank. ");
@@ -74,7 +72,7 @@ public class user_registration extends ActionBarActivity {
         text_box = (EditText) findViewById(R.id.email_txt);
         temp = text_box.getText().toString();
         if(temp.length()!=0){
-            cust.Set_E_MAIL(temp.trim());
+            customer.Set_E_MAIL(temp.trim());
         }else{
             flag=false;
             message=message.concat("E-mail should not be blank. ");
@@ -97,7 +95,7 @@ public class user_registration extends ActionBarActivity {
         }
         if(temp_1.equals(temp)){//Check if the passwords are the same
             if(passwd_enc.length()!=0){
-                cust.Set_PASSWORD(passwd_enc.trim());
+                customer.Set_PASSWORD(passwd_enc.trim());
             }else{
                 flag=false;
                 message=message.concat("Password should not be blank.");
@@ -120,6 +118,9 @@ public class user_registration extends ActionBarActivity {
                     .show();
         }else{
             Intent intent = new Intent(this, user_registration_2.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("registration_screen_1",customer);
+            intent.putExtras(bundle);
             startActivity(intent);
         }
     }

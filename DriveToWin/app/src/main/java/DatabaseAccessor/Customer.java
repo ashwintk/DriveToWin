@@ -1,11 +1,13 @@
 package DatabaseAccessor;
 
+import java.io.Serializable;
 import java.security.MessageDigest;
 
 /**
  * Created by Ashwin Kumar on 26-02-2015.
  */
-public class Customer {
+public class Customer implements Serializable{
+    private static final long serialVersionUID = -7060210544600464481L;
     private String DEVICE_ID;
     private String FIRST_NAME;
     private String LAST_NAME;

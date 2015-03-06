@@ -5,13 +5,17 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import DatabaseAccessor.Customer;
+
 
 public class user_registration_2 extends ActionBarActivity {
 
+   public Customer customer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_registration_2);
+        customer = (Customer) getIntent().getSerializableExtra("registration_screen_1");
     }
 
 
