@@ -5,11 +5,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+
 import java.security.MessageDigest;
+
 import DatabaseAccessor.Customer;
 
 public class user_registration extends ActionBarActivity {
@@ -41,16 +44,18 @@ public class user_registration extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     /*Button action when cancel button is pressed*/
-    public void CancelButtonPressed(View v){
+    public void CancelButtonPressed(View v) {
         finish();
     }
+
     /*Button action when next button is pressed*/
-    public void NextButtonPressed_Registration_1(View v){
-        Customer customer=new Customer();
-        boolean flag= true;
-        String message ="Please correct the following errors.";
-        /*Get Entered First Name*/
+    public void NextButtonPressed_Registration_1(View v) {
+        Customer customer = new Customer();
+        boolean flag = true;
+        String message = "Please correct the following errors.";
+         /*Get Entered First Name*/
         EditText text_box = (EditText) findViewById(R.id.first_name_txt);
         String temp = text_box.getText().toString();
         if(temp.length()!=0){
@@ -78,31 +83,33 @@ public class user_registration extends ActionBarActivity {
             message=message.concat("E-mail should not be blank. ");
         }
         /*Get Entered Password*/
-        text_box = (EditText) findViewById(R.id.password_txt);
+        text_box = (EditText) findViewById(R.id.pwd_text);
         temp = text_box.getText().toString();
-        /*Get Confirm Password*/
+        if(temp.length()==0){
+            flag=false;
+            message=message.concat("Password should not be blank.");
+        }
+       /*Get Confirm Password*/
         text_box = (EditText) findViewById(R.id.conf_pwd_text);
         String temp_1 = text_box.getText().toString();
-        /*Encrypt the password*/
-        String passwd_enc="";
-        try{
-            byte[] bytesOfMessage = temp.getBytes("UTF-8");
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            byte[] thedigest = md.digest(bytesOfMessage);
-            passwd_enc=thedigest.toString();
-        }catch(Exception e) {
-            passwd_enc = null;
+        if(temp_1.length()==0){
+            flag=false;
+            message=message.concat("Confirm should not be blank.");
         }
-        if(temp_1.equals(temp)){//Check if the passwords are the same
-            if(passwd_enc.length()!=0){
-                customer.Set_PASSWORD(passwd_enc.trim());
-            }else{
-                flag=false;
-                message=message.concat("Password should not be blank.");
-            }
-        }else{
+        if(!temp.equals(temp_1)){
             flag=false;
             message=message.concat("Password & Confirm Password do not match.");
+        }
+        if(flag){
+            /*Encrypt the password*/
+            try{
+                byte[] bytesOfMessage = temp.getBytes("UTF-8");
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                byte[] thedigest = md.digest(bytesOfMessage);
+               customer.Set_PASSWORD(thedigest.toString());
+            }catch(Exception e) {
+                Log.d("Exception",e.getMessage());
+            }
         }
         if(!flag){
             new AlertDialog.Builder(this)

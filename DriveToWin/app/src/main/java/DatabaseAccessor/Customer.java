@@ -1,14 +1,9 @@
 package DatabaseAccessor;
 
 import java.io.Serializable;
-import java.security.MessageDigest;
 
-/**
- * Created by Ashwin Kumar on 26-02-2015.
- */
 public class Customer implements Serializable{
     private static final long serialVersionUID = -7060210544600464481L;
-    private String DEVICE_ID;
     private String FIRST_NAME;
     private String LAST_NAME;
     private String E_MAIL;
@@ -22,7 +17,6 @@ public class Customer implements Serializable{
     private String POLICY_NUMBER;
     private String CLAIM_NUMBER;
     public Customer(){
-        this.DEVICE_ID="";
         this.FIRST_NAME="";
         this.LAST_NAME="";
         this.E_MAIL="";
@@ -34,8 +28,6 @@ public class Customer implements Serializable{
         this.VIN_NUMBER="";
         this.CAR_YEAR="";
     }
-    public void Set_DEVICE_ID(String str){this.DEVICE_ID=str;}
-    public String Get_DEVICE_ID(){return this.DEVICE_ID;}
     public void Set_FIRST_NAME(String str){this.FIRST_NAME=str;}
     public String Get_FIRST_NAME(){return this.FIRST_NAME;}
     public void Set_LAST_NAME(String str){this.LAST_NAME=str;}

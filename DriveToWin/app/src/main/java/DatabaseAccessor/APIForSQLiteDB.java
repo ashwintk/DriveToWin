@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
 import java.util.*;
 
 public class APIForSQLiteDB extends SQLiteOpenHelper{
@@ -14,7 +15,7 @@ public class APIForSQLiteDB extends SQLiteOpenHelper{
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "create table IF NOT EXISTS customer (device_id TEXT, first_name TEXT, last_name TEXT, "
+        String query = "create table IF NOT EXISTS customer (first_name TEXT, last_name TEXT, "
         +"e_mail TEXT, password TEXT, phone_number TEXT, car_year INTEGER, car_make TEXT,"
         +"car_model TEXT, car_vin TEXT, car_tag TEXT, policy_num TEXT, claim_phone TEXT);";
         db.execSQL(query);
@@ -30,7 +31,6 @@ public class APIForSQLiteDB extends SQLiteOpenHelper{
 
     public long addCustomer(Customer cust){
         ContentValues cv = new ContentValues();
-        cv.put("device_id",cust.Get_DEVICE_ID());
         cv.put("first_name",cust.Get_FIRST_NAME());
         cv.put("last_name",cust.Get_LAST_NAME());
         cv.put("e_mail",cust.Get_E_MAIL());
@@ -61,19 +61,19 @@ public class APIForSQLiteDB extends SQLiteOpenHelper{
         Cursor resultSet = database.rawQuery("Select * from customer",null);
         resultSet.moveToFirst();
         Customer obj = new Customer();
-        obj.Set_DEVICE_ID(resultSet.getString(1));
-        obj.Set_FIRST_NAME(resultSet.getString(2));
-        obj.Set_LAST_NAME(resultSet.getString(3));
-        obj.Set_E_MAIL(resultSet.getString(4));
-        obj.Set_PASSWORD(resultSet.getString(5));
-        obj.Set_PHONE_NUMBER(resultSet.getString(6));
-        obj.Set_CAR_YEAR(resultSet.getString(7));
-        obj.Set_CAR_MAKE(resultSet.getString(8));
-        obj.Set_CAR_MODEL(resultSet.getString(9));
-        obj.Set_VIN_NUMBER(resultSet.getString(10));
-        obj.Set_CAR_TAG(resultSet.getString(11));
-        obj.Set_POLICY_NUMBER(resultSet.getString(12));
-        obj.Set_CLAIM_NUMBER(resultSet.getString(13));
+
+        obj.Set_FIRST_NAME(resultSet.getString(0));
+        obj.Set_LAST_NAME(resultSet.getString(1));
+        obj.Set_E_MAIL(resultSet.getString(2));
+        obj.Set_PASSWORD(resultSet.getString(3));
+        obj.Set_PHONE_NUMBER(resultSet.getString(4));
+        obj.Set_CAR_YEAR(resultSet.getString(5));
+        obj.Set_CAR_MAKE(resultSet.getString(6));
+        obj.Set_CAR_MODEL(resultSet.getString(7));
+        obj.Set_VIN_NUMBER(resultSet.getString(8));
+        obj.Set_CAR_TAG(resultSet.getString(9));
+        obj.Set_POLICY_NUMBER(resultSet.getString(10));
+        obj.Set_CLAIM_NUMBER(resultSet.getString(11));
         return obj;
     }
 

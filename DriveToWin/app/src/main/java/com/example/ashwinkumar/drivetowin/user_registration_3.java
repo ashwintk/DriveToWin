@@ -1,17 +1,23 @@
 package com.example.ashwinkumar.drivetowin;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.provider.Settings;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import DatabaseAccessor.APIForSQLiteDB;
 import DatabaseAccessor.Customer;
+import DatabaseAccessor.StoreCustomerDataToServer;
 
 
 public class user_registration_3 extends ActionBarActivity {
@@ -79,6 +85,10 @@ public class user_registration_3 extends ActionBarActivity {
             flag=false;
             message=message.concat("Insurance Policy Claim Phone # should not be blank. ");
         }
+        if(!isOnline()){
+            flag=false;
+            message=message.concat("No Internet Connectivity.");
+        }
         if(!flag){
             new AlertDialog.Builder(this)
                     .setTitle("Error")
@@ -94,6 +104,25 @@ public class user_registration_3 extends ActionBarActivity {
         }else{
             APIForSQLiteDB obj = new APIForSQLiteDB(this.getApplicationContext());
             obj.addCustomer(customer);
+            new StoreCustomerDataToServer().execute(customer);
+            new AlertDialog.Builder(this)
+                    .setTitle("Success")
+                    .setMessage("You have been successfully registered")
+                    .setCancelable(true)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .show();
+            Customer cust = obj.getCustomerInformation();
+            Toast.makeText(this.getApplicationContext(),cust.Get_FIRST_NAME()+","+cust.Get_LAST_NAME(),Toast.LENGTH_LONG).show();
         }
+    }
+    public boolean isOnline() {
+        ConnectivityManager cm =(ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        return netInfo != null && netInfo.isConnected();
     }
 }
