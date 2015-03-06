@@ -1,6 +1,9 @@
 package DatabaseAccessor;
 
-public class EmergencyContacts {
+import java.io.Serializable;
+
+public class EmergencyContacts implements Serializable{
+    private static final long serialVersionUID = -7060210544600464485L;
     private String NAME;
     private String E_MAIL;
     private String PHONE_NUMBER;

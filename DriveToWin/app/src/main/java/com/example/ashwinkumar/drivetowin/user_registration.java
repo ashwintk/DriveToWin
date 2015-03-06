@@ -48,7 +48,7 @@ public class user_registration extends ActionBarActivity {
     /*Button action when next button is pressed*/
     public void NextButtonPressed_Registration_1(View v){
         Customer customer=new Customer();
-        boolean flag= false;
+        boolean flag= true;
         String message ="Please correct the following errors.";
         /*Get Entered First Name*/
         EditText text_box = (EditText) findViewById(R.id.first_name_txt);

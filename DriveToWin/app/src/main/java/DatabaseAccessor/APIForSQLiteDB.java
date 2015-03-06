@@ -14,11 +14,11 @@ public class APIForSQLiteDB extends SQLiteOpenHelper{
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "create table customer (device_id TEXT, first_name TEXT, last_name TEXT, "
+        String query = "create table IF NOT EXISTS customer (device_id TEXT, first_name TEXT, last_name TEXT, "
         +"e_mail TEXT, password TEXT, phone_number TEXT, car_year INTEGER, car_make TEXT,"
         +"car_model TEXT, car_vin TEXT, car_tag TEXT, policy_num TEXT, claim_phone TEXT);";
         db.execSQL(query);
-        query ="create table emergency_contacts (name TEXT,e_mail TEXT,phone_number TEXT);";
+        query ="create table IF NOT EXISTS emergency_contacts (name TEXT,e_mail TEXT,phone_number TEXT);";
         db.execSQL(query);
     }
     @Override

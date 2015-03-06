@@ -43,14 +43,8 @@
         android:layout_alignRight="@+id/policy_num_text"
         android:layout_alignEnd="@+id/policy_num_text"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/finish_button_text"
-        android:id="@+id/resigter_btn"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="true"
+        android:inputType="phone"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,18 +52,44 @@
         android:text="@string/terms_text"
         android:id="@+id/terms_text"
         android:gravity="center"
-        android:layout_marginBottom="71dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/resigter_btn"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="39dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_emergency_contact_btn"
         android:id="@+id/add_emergency_contact_btn"
+        android:onClick="addEmergencyContacts"
+        android:layout_below="@+id/terms_text"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="37dp"
+        android:layout_alignRight="@+id/terms_text"
+        android:layout_alignEnd="@+id/terms_text" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/finish_button_text"
+        android:id="@+id/resigter_btn"
         android:layout_below="@+id/policy_claim_phone_text"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
-        android:onClick="addEmergencyContacts"/>
+        android:layout_alignRight="@+id/terms_text"
+        android:layout_alignEnd="@+id/terms_text"
+        android:layout_marginRight="49dp"
+        android:layout_marginEnd="49dp"
+        android:layout_marginTop="37dp"
+        android:onClick="RegisterButtonPressed"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back_btn_text"
+        android:id="@+id/back_btn"
+        android:onClick="BackButtonPressed"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_alignTop="@+id/resigter_btn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
