@@ -38,4 +38,11 @@
     <string name="claim_number">Enter Claim Phone #</string>
     <string name="terms_text">By signing up, you accpet the terms and conditions of the application</string>
     <string name="title_activity_emergency_contacts">EmergencyContacts</string>
+	<string-array name="main_menu_items">
+		<item>Drive to win challenge!</item>
+		<item>My trips</item>
+		<item>Predictive time</item>
+		<item>Vehicle Diagnostics</item>
+		<item>View Profile</item>
+	</string-array>
 </resources>
