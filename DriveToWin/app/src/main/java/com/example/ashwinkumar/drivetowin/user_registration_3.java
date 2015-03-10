@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import DatabaseAccessor.APIForSQLiteDB;
 import DatabaseAccessor.Customer;
+import DatabaseAccessor.EmergencyContacts;
 import DatabaseAccessor.StoreCustomerDataToServer;
 
 
