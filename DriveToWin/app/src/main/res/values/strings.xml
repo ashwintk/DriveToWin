@@ -46,4 +46,5 @@
 	</string-array>
     <string name="plus_sign">+</string>
     <string name="enter_name">Enter Name</string>
+    <string name="add_btn">Add</string>
 </resources>

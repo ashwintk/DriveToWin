@@ -84,9 +84,9 @@ public class APIForSQLiteDB extends SQLiteOpenHelper{
         resultSet.moveToFirst();
         while(resultSet.moveToNext()){
             EmergencyContacts obj = new EmergencyContacts();
-            obj.Set_NAME(resultSet.getString(1));
-            obj.Set_E_MAIL(resultSet.getString(2));
-            obj.Set_PHONE_NUMBER(resultSet.getString(3));
+            obj.Set_NAME(resultSet.getString(0));
+            obj.Set_E_MAIL(resultSet.getString(1));
+            obj.Set_PHONE_NUMBER(resultSet.getString(2));
             em_list.add(obj);
         }
         return em_list;

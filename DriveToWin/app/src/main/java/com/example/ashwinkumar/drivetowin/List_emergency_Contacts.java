@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -23,13 +24,14 @@ public class list_emergency_contacts extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        APIForSQLiteDB obj = new APIForSQLiteDB(this.getApplicationContext());
-        em_contacts=obj.getAllEmergencyContacts();
         setContentView(R.layout.activity_list_emergency_contacts);
         InitializeList();
     }
-
-
+    @Override
+    public void onResume(){
+        InitializeList();
+        super.onResume();
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -65,11 +67,14 @@ public class list_emergency_contacts extends ActionBarActivity {
     }
 
     public void InitializeList(){
+        APIForSQLiteDB obj = new APIForSQLiteDB(this.getApplicationContext());
+        em_contacts=obj.getAllEmergencyContacts();
         List<String> names=new ArrayList<>();
         for (int i=0;i<em_contacts.size();i++)
             names.add(em_contacts.get(i).Get_NAME());
         ListView list = (ListView)findViewById(R.id.emergencyContactList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.activity_list_emergency_contacts,names);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,names);
         list.setAdapter(adapter);
+        Log.d("Info","DTW: "+em_contacts.size()+" elements added");
     }
 }
