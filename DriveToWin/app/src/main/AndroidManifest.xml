@@ -39,8 +39,12 @@
             android:label="@string/title_activity_main_menu" >
         </activity>
         <activity
-            android:name=".EmergencyContacts"
-            android:label="@string/title_activity_emergency_contacts" >
+            android:name=".list_emergency_contacts"
+            android:label="@string/title_activity_list_emergency_contacts" >
+        </activity>
+        <activity
+            android:name=".add_emergency_contacts"
+            android:label="@string/title_activity_add_emergency_contacts" >
         </activity>
     </application>
 

@@ -3,12 +3,13 @@
 
     <string name="action_settings">Settings</string>
     <string name="app_name">DriveToWin</string>
-    <string name="title_activity_user_registration">user_registration</string>
-    <string name="title_activity_aaa_user_login">aaa_user_login</string>
-    <string name="title_activity_user_registration_2">user_registration_2</string>
-    <string name="title_activity_main_menu">main_menu</string>
-
-
+    <string name="title_activity_user_registration">User Registration</string>
+    <string name="title_activity_user_registration_2">User Registration</string>
+    <string name="title_activity_user_registration_3">User Registration</string>
+    <string name="title_activity_aaa_user_login">Login</string>
+    <string name="title_activity_main_menu">Main Menu</string>
+    <string name="title_activity_list_emergency_contacts">Emergency Contacts</string>
+    <string name="title_activity_add_emergency_contacts">Add Emergency Contact</string>
     <string name="app_name_formatted">Drive To Win !!!</string>
     <string name="powered_by">Powered by</string>
     <string name="aaa_logo_description">AAA Logo</string>
@@ -31,13 +32,11 @@
     <string name="car_year_text">Enter Car Year</string>
     <string name="car_vin_text">Enter VIN #</string>
     <string name="finish_button_text">Register</string>
-    <string name="title_activity_user_registration_3">user_registration_3</string>
     <string name="hello_world">Hello world!</string>
     <string name="car_tag">Enter Tag #</string>
     <string name="policy_number">Enter Your Insurance Policy #</string>
     <string name="claim_number">Enter Claim Phone #</string>
-    <string name="terms_text">By signing up, you accpet the terms and conditions of the application</string>
-    <string name="title_activity_emergency_contacts">EmergencyContacts</string>
+    <string name="terms_text">By signing up, you accept the terms and conditions of the application</string>
 	<string-array name="main_menu_items">
 		<item>Drive to win challenge!</item>
 		<item>My trips</item>
@@ -45,4 +44,6 @@
 		<item>Vehicle Diagnostics</item>
 		<item>View Profile</item>
 	</string-array>
+    <string name="plus_sign">+</string>
+    <string name="enter_name">Enter Name</string>
 </resources>

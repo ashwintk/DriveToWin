@@ -19,6 +19,7 @@ import DatabaseAccessor.APIForSQLiteDB;
 import DatabaseAccessor.Customer;
 import DatabaseAccessor.EmergencyContacts;
 import DatabaseAccessor.StoreCustomerDataToServer;
+import LibraryFunctions.LibraryFunction;
 
 
 public class user_registration_3 extends ActionBarActivity {
@@ -41,7 +42,6 @@ public class user_registration_3 extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
@@ -50,7 +50,7 @@ public class user_registration_3 extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     public void addEmergencyContacts(View view){
-        Intent intent = new Intent(this, EmergencyContacts.class);
+        Intent intent = new Intent(this, list_emergency_contacts.class);
         startActivity(intent);
     }
 
@@ -86,7 +86,8 @@ public class user_registration_3 extends ActionBarActivity {
             flag=false;
             message=message.concat("Insurance Policy Claim Phone # should not be blank. ");
         }
-        if(!isOnline()){
+        ConnectivityManager cm =(ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(!new LibraryFunction().isOnline(cm)){
             flag=false;
             message=message.concat("No Internet Connectivity.");
         }
@@ -117,13 +118,7 @@ public class user_registration_3 extends ActionBarActivity {
                     })
                     .setIcon(android.R.drawable.ic_dialog_info)
                     .show();
-            Customer cust = obj.getCustomerInformation();
-            Toast.makeText(this.getApplicationContext(),cust.Get_FIRST_NAME()+","+cust.Get_LAST_NAME(),Toast.LENGTH_LONG).show();
         }
     }
-    public boolean isOnline() {
-        ConnectivityManager cm =(ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        return netInfo != null && netInfo.isConnected();
-    }
+
 }

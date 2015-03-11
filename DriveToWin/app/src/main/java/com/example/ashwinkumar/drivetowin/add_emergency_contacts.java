@@ -33,7 +33,9 @@ public class add_emergency_contacts extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        if(id==R.id.add_emergency_contact){
 
+        }
         return super.onOptionsItemSelected(item);
     }
 }

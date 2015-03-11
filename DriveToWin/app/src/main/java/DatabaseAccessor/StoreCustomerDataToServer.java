@@ -10,13 +10,10 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import LibraryFunctions.LibraryFunction;
 
 public class StoreCustomerDataToServer extends AsyncTask<Customer,Void,String>{
     protected String doInBackground(Customer... cust){
@@ -40,23 +37,11 @@ public class StoreCustomerDataToServer extends AsyncTask<Customer,Void,String>{
             list.add(new BasicNameValuePair("claim_num",customer.Get_CLAIM_NUMBER()));
             postRequest.setEntity(new UrlEncodedFormEntity(list));
             HttpResponse response = postClient.execute(postRequest);
-            Log.d("From Web Service",getTextFromHttpResponse(response.getEntity().getContent()));
+            Log.d("From Web Service",new LibraryFunction().getTextFromHttpResponse(response.getEntity().getContent()));
         }catch(Exception e){
             Log.d("Exception",e.getMessage());
         }
         return null;
     }
-    private String getTextFromHttpResponse (InputStream in){
-        String text="";
-        BufferedReader br =new BufferedReader(new InputStreamReader(in));
-        String line;
-        try{
-            while((line=br.readLine())!=null){
-                text +=line+"\n";
-            }
-        }catch (Exception e){
-            Log.d("Exception", e.getMessage());
-        }
-        return text;
-    }
+
 }
