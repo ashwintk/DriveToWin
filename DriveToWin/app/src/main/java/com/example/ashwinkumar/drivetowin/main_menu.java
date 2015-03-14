@@ -1,9 +1,13 @@
 package com.example.ashwinkumar.drivetowin;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 
 public class main_menu extends ActionBarActivity {
@@ -12,6 +16,16 @@ public class main_menu extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+        ListView list = (ListView) findViewById(R.id.mainmenu_listview);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position==5){
+                    Intent intent=new Intent(main_menu.this,list_emergency_contacts.class);
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
 

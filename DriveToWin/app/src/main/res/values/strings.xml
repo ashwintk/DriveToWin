@@ -43,6 +43,7 @@
 		<item>Predictive time</item>
 		<item>Vehicle Diagnostics</item>
 		<item>View Profile</item>
+        <item>View Emergency Contacts</item>
 	</string-array>
     <string name="plus_sign">+</string>
     <string name="enter_name">Enter Name</string>
