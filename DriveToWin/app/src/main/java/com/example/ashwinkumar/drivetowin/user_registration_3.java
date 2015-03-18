@@ -50,7 +50,7 @@ public class user_registration_3 extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
     public void addEmergencyContacts(View view){
-        Intent intent = new Intent(this, list_emergency_contacts.class);
+        Intent intent = new Intent(this, List_emergency_Contacts.class);
         startActivity(intent);
     }
 

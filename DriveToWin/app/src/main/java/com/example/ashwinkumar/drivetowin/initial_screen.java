@@ -55,7 +55,7 @@ public class initial_screen extends ActionBarActivity {
     }
 
     public void sign_in_in_as_guest(View v){
-        Intent intent = new Intent(this,user_registration.class);
+        Intent intent = new Intent(getApplicationContext(),main_menu.class);
         startActivity(intent);
     }
 }

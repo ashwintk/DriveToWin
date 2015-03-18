@@ -25,7 +25,7 @@ import DatabaseAccessor.EmergencyContacts;
 import LibraryFunctions.*;
 
 
-public class list_emergency_contacts extends ActionBarActivity {
+public class List_emergency_Contacts extends ActionBarActivity {
 
     private List<EmergencyContacts> em_contacts;
     StableArrayAdapter mAdapter;
@@ -109,7 +109,7 @@ public class list_emergency_contacts extends ActionBarActivity {
         @Override
         public boolean onTouch(final View v, MotionEvent event) {
             if (mSwipeSlop < 0) {
-                mSwipeSlop = ViewConfiguration.get(list_emergency_contacts.this).getScaledTouchSlop();
+                mSwipeSlop = ViewConfiguration.get(List_emergency_Contacts.this).getScaledTouchSlop();
             }
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:

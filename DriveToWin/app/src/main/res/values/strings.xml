@@ -37,15 +37,19 @@
     <string name="policy_number">Enter Your Insurance Policy #</string>
     <string name="claim_number">Enter Claim Phone #</string>
     <string name="terms_text">By signing up, you accept the terms and conditions of the application</string>
-	<string-array name="main_menu_items">
+
+    <string-array name="main_menu_items">
 		<item>Drive to win challenge!</item>
-		<item>My trips</item>
-		<item>Predictive time</item>
 		<item>Vehicle Diagnostics</item>
+		<item>Predictive time</item>
+		<item>My trips</item>
 		<item>View Profile</item>
         <item>View Emergency Contacts</item>
-	</string-array>
+    </string-array>
+
     <string name="plus_sign">+</string>
     <string name="enter_name">Enter Name</string>
     <string name="add_btn">Add</string>
+    <string name="title_activity_vehicle_diagonistic">VehicleDiagonistic</string>
+
 </resources>

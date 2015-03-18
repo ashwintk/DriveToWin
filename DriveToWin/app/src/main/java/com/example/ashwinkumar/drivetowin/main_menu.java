@@ -11,20 +11,36 @@ import android.widget.ListView;
 
 
 public class main_menu extends ActionBarActivity {
+	Intent intent;
 
-    @Override
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
-        ListView list = (ListView) findViewById(R.id.mainmenu_listview);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main_menu);
+		ListView list = (ListView) findViewById(R.id.mainmenu_listview);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==5){
-                    Intent intent=new Intent(main_menu.this,list_emergency_contacts.class);
-                    startActivity(intent);
-                }
-            }
+                switch(position){
+					case 0:
+						break;
+					case 1:
+						intent = new Intent(getApplicationContext(), VehicleDiagonistic.class);
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						intent=new Intent(getApplicationContext(),List_emergency_Contacts.class);
+						break;
+				}
+				if (position <= 5) {
+					startActivity(intent);
+				}
+	        }
         });
     }
 
