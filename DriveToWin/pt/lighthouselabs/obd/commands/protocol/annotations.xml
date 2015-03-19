@@ -1,0 +1,5 @@
+<root>
+	<item name='pt.lighthouselabs.obd.commands.protocol.TimeoutObdCommand'>
+		<annotation name='java.lang.annotation.Deprecated'/>
+	</item>
+</root>
