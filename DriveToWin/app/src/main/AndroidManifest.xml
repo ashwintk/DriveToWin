@@ -43,7 +43,7 @@
             android:label="@string/title_activity_main_menu" >
         </activity>
         <activity
-            android:name=".list_emergency_contacts"
+            android:name=".List_emergency_Contacts"
             android:label="@string/title_activity_list_emergency_contacts" >
         </activity>
         <activity

@@ -46,7 +46,7 @@
 		<item>View Profile</item>
         <item>View Emergency Contacts</item>
     </string-array>
-
+    <string name="go_back">Go Back</string>
     <string name="plus_sign">+</string>
     <string name="enter_name">Enter Name</string>
     <string name="add_btn">Add</string>

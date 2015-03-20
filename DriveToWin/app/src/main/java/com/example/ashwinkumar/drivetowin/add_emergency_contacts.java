@@ -10,20 +10,35 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import DatabaseAccessor.APIForSQLiteDB;
 import DatabaseAccessor.EmergencyContacts;
-import DatabaseAccessor.StoreCustomerDataToServer;
 import DatabaseAccessor.StoreEmergencyContactToServer;
 import LibraryFunctions.LibraryFunction;
 
 
 public class add_emergency_contacts extends ActionBarActivity {
 
+    private EmergencyContacts em_contact;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Bundle extrasBundle = getIntent().getExtras();
+        if(!extrasBundle.isEmpty()){
+            if(extrasBundle.containsKey("edit_emergency_contact")){
+                em_contact = (EmergencyContacts)extrasBundle.getSerializable("edit_emergency_contact");
+            }
+        }
         setContentView(R.layout.activity_add_emergency_contacts);
+        if(em_contact!=null){
+            EditText text_box = (EditText) findViewById(R.id.add_emergency_contact_name);
+            text_box.setText(em_contact.Get_NAME(), TextView.BufferType.EDITABLE);
+            text_box = (EditText) findViewById(R.id.add_emergency_contact_email);
+            text_box.setText(em_contact.Get_E_MAIL(), TextView.BufferType.EDITABLE);
+            text_box = (EditText) findViewById(R.id.add_emergency_contact_phone);
+            text_box.setText(em_contact.Get_PHONE_NUMBER(), TextView.BufferType.EDITABLE);
+        }
     }
 
 
@@ -110,6 +125,7 @@ public class add_emergency_contacts extends ActionBarActivity {
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
+                            finish();
                         }
                     })
                     .setIcon(android.R.drawable.ic_dialog_info)
