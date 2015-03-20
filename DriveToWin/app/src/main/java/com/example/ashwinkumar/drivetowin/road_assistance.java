@@ -19,7 +19,7 @@ import LibraryFunctions.GeoLocation;
 
 
 public class road_assistance extends ActionBarActivity {
-
+    private CommunicateByTextEmail comm = new CommunicateByTextEmail();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +48,7 @@ public class road_assistance extends ActionBarActivity {
     }
 
     public void Call911BtnPressed(View view){
-        Intent phoneIntent = new Intent(Intent.ACTION_CALL);
-        phoneIntent.setData(Uri.parse("tel://911"));
+        Intent phoneIntent = comm.callPhone("tel://911");
         try {
             startActivity(phoneIntent);
             finish();
@@ -75,7 +74,6 @@ public class road_assistance extends ActionBarActivity {
         gps.stopUsingGPS();
         message=message.concat(" ");
         String subject="Alert";
-        CommunicateByTextEmail comm = new CommunicateByTextEmail();
         String recipients="";
         for(int i=0;i<em_list.size();i++){
             comm.sendText(em_list.get(i).Get_PHONE_NUMBER(),message);
@@ -84,5 +82,9 @@ public class road_assistance extends ActionBarActivity {
         recipients=recipients.substring(0,recipients.length()-1);
         Intent email=comm.sendEmail(recipients,subject,message);
         startActivity(Intent.createChooser(email,"Choose an email client from the following"));
+    }
+    public void SafeButtonPressed(View view){
+        Intent intent = new Intent(this,file_a_claim.class);
+        startActivity(intent);
     }
 }

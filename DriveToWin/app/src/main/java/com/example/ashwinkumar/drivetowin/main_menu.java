@@ -36,8 +36,11 @@ public class main_menu extends ActionBarActivity {
 					case 5:
 						intent=new Intent(getApplicationContext(),List_emergency_Contacts.class);
 						break;
+                    case 6:
+                        intent=new Intent(getApplicationContext(),road_assistance.class);
+                        break;
 				}
-				if (position <= 5) {
+				if (position <= 6) {
 					startActivity(intent);
 				}
 	        }

@@ -1,6 +1,7 @@
 package LibraryFunctions;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.telephony.SmsManager;
 import android.util.Log;
 
@@ -25,5 +26,10 @@ public class CommunicateByTextEmail {
         email.putExtra(Intent.EXTRA_TEXT, message);
         email.setType("message/rfc822");
         return email;
+    }
+    public Intent callPhone(String phoneNum){
+        Intent phoneIntent = new Intent(Intent.ACTION_CALL);
+        phoneIntent.setData(Uri.parse(phoneNum));
+        return phoneIntent;
     }
 }
