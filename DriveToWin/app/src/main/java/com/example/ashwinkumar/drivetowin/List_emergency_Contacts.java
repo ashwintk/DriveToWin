@@ -78,7 +78,7 @@ public class List_emergency_Contacts extends SwipeListViewActivity {
     public ListView getListView() {
         return mListView;
     }
-    public void getSwipeItem(boolean isRight, int position) {
+    public void getSwipeItem(boolean isRight, final int position) {
         //Delete Contact
         new AlertDialog.Builder(this)
                 .setTitle("Alert")
@@ -87,15 +87,24 @@ public class List_emergency_Contacts extends SwipeListViewActivity {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         //Code to delete emergency contact
+                        DeleteEmergencyContact(position);
                     }
                 })
-                .setNegativeButton(android.R.string.cancel,new DialogInterface.OnClickListener(){
-                    public void onClick(DialogInterface dialog,int which){
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                     }
                 })
                 .setIcon(android.R.drawable.ic_dialog_info)
                 .show();
+    }
+    public void DeleteEmergencyContact(int position){
+        APIForSQLiteDB obj = new APIForSQLiteDB(this.getApplicationContext());
+        obj.deleteEmergencyContact(em_contacts.get(position));
+        new DeleteEmergencyContactFromServer(this.getApplicationContext()).execute(em_contacts.get(position));
+        em_contacts.remove(position);
+        ArrayAdapter<String> adapter = (ArrayAdapter<String>)mListView.getAdapter();
+        adapter.notifyDataSetChanged();
     }
     public void onItemClickListener(ListAdapter adapter, int position) {
         //Edit Contact

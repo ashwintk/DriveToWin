@@ -84,6 +84,12 @@ public class APIForSQLiteDB extends SQLiteOpenHelper{
         SQLiteDatabase database = getReadableDatabase();
         database.execSQL(query);
     }
+    public void deleteEmergencyContact(EmergencyContacts em_contact){
+        String query = "DELETE FROM emergency_contacts where name ='"+em_contact.Get_NAME()+
+                "' and e_mail ='"+em_contact.Get_E_MAIL()+"' and phone_number ='"+em_contact.Get_PHONE_NUMBER()+"'";
+        SQLiteDatabase database = getReadableDatabase();
+        database.execSQL(query);
+    }
     public List<EmergencyContacts> getAllEmergencyContacts(){
         List<EmergencyContacts> em_list = new ArrayList<EmergencyContacts>();
         SQLiteDatabase database = getReadableDatabase();

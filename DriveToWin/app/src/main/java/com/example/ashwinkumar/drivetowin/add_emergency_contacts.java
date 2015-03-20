@@ -120,7 +120,7 @@ public class add_emergency_contacts extends ActionBarActivity {
             if(this.em_contact!=null){
                 //Update Existing Contact
                 obj.updateEmergencyContact(this.em_contact,em_contact_new);
-                new UpdateEmergencyContactInServer(this.getApplicationContext()).execute(em_contact_new);
+                new UpdateEmergencyContactInServer(this.getApplicationContext(),em_contact,em_contact_new).execute();
                 new AlertDialog.Builder(this)
                         .setTitle("Success")
                         .setMessage("Your contact has been updated successfully")
