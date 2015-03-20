@@ -11,7 +11,7 @@
     <string name="title_activity_list_emergency_contacts">Emergency Contacts</string>
     <string name="title_activity_add_emergency_contacts">Add Emergency Contact</string>
     <string name="title_activity_vehicle_diagonistic">Vehicle Diagnostic</string>
-    <string name="title_activity_road_assistance">Road Assistance</string>
+    <string name="title_activity_road_assistance">Roadside Assistance</string>
     <string name="title_activity_file_a_claim">Claim Request</string>
 
     <string name="app_name_formatted">Drive To Win !!!</string>
@@ -48,7 +48,7 @@
 		<item>My trips</item>
 		<item>View Profile</item>
         <item>View Emergency Contacts</item>
-        <item>Road Assistance</item>
+        <item>Roadside Assistance</item>
     </string-array>
     <string name="go_back">Go Back</string>
     <string name="plus_sign">+</string>

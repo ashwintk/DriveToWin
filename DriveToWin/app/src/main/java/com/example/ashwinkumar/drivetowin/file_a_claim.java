@@ -1,7 +1,9 @@
 package com.example.ashwinkumar.drivetowin;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,6 +52,13 @@ public class file_a_claim extends ActionBarActivity {
     }
     public void CallRoadSideAssistancePressed(View view){
         CommunicateByTextEmail comm = new CommunicateByTextEmail();
-        comm.callPhone("tel:"+cust.Get_CLAIM_NUMBER());
+        Intent phoneIntent = comm.callPhone("tel://"+cust.Get_CLAIM_NUMBER());
+        try {
+            startActivity(phoneIntent);
+            finish();
+            Log.i("Info", "Finished making a call");
+        } catch (android.content.ActivityNotFoundException ex) {
+            Log.i("Error", "Call Failed");
+        }
     }
 }
