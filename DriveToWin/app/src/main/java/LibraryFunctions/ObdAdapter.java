@@ -113,4 +113,9 @@ public class ObdAdapter {
 		}
 		return fuelLevel;
 	}
+
+    public String getEngineMileage(){
+        //Function to get engine mileage
+        return"";
+    }
 }

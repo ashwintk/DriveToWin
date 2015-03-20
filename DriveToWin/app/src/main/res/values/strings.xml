@@ -10,6 +10,8 @@
     <string name="title_activity_main_menu">Main Menu</string>
     <string name="title_activity_list_emergency_contacts">Emergency Contacts</string>
     <string name="title_activity_add_emergency_contacts">Add Emergency Contact</string>
+    <string name="title_activity_vehicle_diagonistic">Vehicle Diagnostic</string>
+    <string name="title_activity_road_assistance">Road Assistance</string>
     <string name="app_name_formatted">Drive To Win !!!</string>
     <string name="powered_by">Powered by</string>
     <string name="aaa_logo_description">AAA Logo</string>
@@ -37,7 +39,6 @@
     <string name="policy_number">Enter Your Insurance Policy #</string>
     <string name="claim_number">Enter Claim Phone #</string>
     <string name="terms_text">By signing up, you accept the terms and conditions of the application</string>
-
     <string-array name="main_menu_items">
 		<item>Drive to win challenge!</item>
 		<item>Vehicle Diagnostics</item>
@@ -45,11 +46,17 @@
 		<item>My trips</item>
 		<item>View Profile</item>
         <item>View Emergency Contacts</item>
+        <item>Road Assistance</item>
     </string-array>
     <string name="go_back">Go Back</string>
     <string name="plus_sign">+</string>
     <string name="enter_name">Enter Name</string>
     <string name="add_btn">Add</string>
-    <string name="title_activity_vehicle_diagonistic">VehicleDiagonistic</string>
-
+    <string name="safety_first">YOUR SAFETY IS OUR PRIORITY.</string>
+    <string name="safe_location_question">Are you in a safe location?</string>
+    <string name="safe_btn">YES, I AM SAFE</string>
+    <string name="emergency_text">If you are unsafe or in an emergency, immediately call 911 now</string>
+    <string name="call_911_btn">CALL 911</string>
+    <string name="inform_family_msg">Do you want an alert to your emergency contacts?</string>
+    <string name="inform_family_btn">YES SEND AN ALERT</string>
 </resources>

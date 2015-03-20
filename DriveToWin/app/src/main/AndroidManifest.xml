@@ -56,6 +56,10 @@
             android:name=".VehicleDiagonistic"
             android:label="@string/title_activity_vehicle_diagonistic" >
         </activity>
+        <activity
+            android:name=".road_assistance"
+            android:label="@string/title_activity_road_assistance" >
+        </activity>
     </application>
 
 </manifest>
