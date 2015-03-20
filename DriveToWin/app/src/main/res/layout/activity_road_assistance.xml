@@ -69,7 +69,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:onClick="Call911BtnPressed"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -95,6 +96,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
         android:layout_alignRight="@+id/inform_family_msg"
-        android:layout_alignEnd="@+id/inform_family_msg" />
+        android:layout_alignEnd="@+id/inform_family_msg"
+        android:onClick="AlertBtnPressed"/>
 
 </RelativeLayout>
