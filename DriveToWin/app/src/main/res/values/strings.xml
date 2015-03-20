@@ -13,6 +13,7 @@
     <string name="title_activity_vehicle_diagonistic">Vehicle Diagnostic</string>
     <string name="title_activity_road_assistance">Roadside Assistance</string>
     <string name="title_activity_file_a_claim">Claim Request</string>
+    <string name="title_activity_view__profile">View Profile</string>
 
     <string name="app_name_formatted">Drive To Win !!!</string>
     <string name="powered_by">Powered by</string>
@@ -65,4 +66,11 @@
     <string name="policy_num">Insurance Policy #</string>
     <string name="claim_phone">Roadside Assistance Phone #</string>
     <string name="call_phone_btn">Call Roadside Assistance Now</string>
+    <string name="name_view_profile">Name</string>
+    <string name="car_make_model_view_profile">Car Make &amp; Model</string>
+    <string name="vin_view_profile">VIN #</string>
+    <string name="phone_num_view_profile">Phone #</string>
+    <string name="email_view_profile">E-mail</string>
+    <string name="change_pwd">Change Password</string>
+    <string name="deactivate_Account">Deactivate Account</string>
 </resources>

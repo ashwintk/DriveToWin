@@ -104,4 +104,9 @@ public class APIForSQLiteDB extends SQLiteOpenHelper{
         }
         return em_list;
     }
+    public void deleteAllData(){
+        SQLiteDatabase database = getReadableDatabase();
+        database.execSQL("delete from emergency_contacts");
+        database.execSQL("delete from customer");
+    }
 }
