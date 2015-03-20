@@ -76,7 +76,14 @@ public class APIForSQLiteDB extends SQLiteOpenHelper{
         obj.Set_CLAIM_NUMBER(resultSet.getString(11));
         return obj;
     }
-
+    public void updateEmergencyContact(EmergencyContacts oldContact, EmergencyContacts newContact){
+        String query = "UPDATE emergency_contacts set name ='"+newContact.Get_NAME()+
+                "',e_mail ='"+newContact.Get_E_MAIL()+"',phone_number ='"+newContact.Get_PHONE_NUMBER()+
+                "' where name ='"+oldContact.Get_NAME()+"' and e_mail ='"+newContact.Get_E_MAIL()+
+                "'and phone_number ='"+newContact.Get_PHONE_NUMBER()+"'";
+        SQLiteDatabase database = getReadableDatabase();
+        database.execSQL(query);
+    }
     public List<EmergencyContacts> getAllEmergencyContacts(){
         List<EmergencyContacts> em_list = new ArrayList<EmergencyContacts>();
         SQLiteDatabase database = getReadableDatabase();

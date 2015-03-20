@@ -15,6 +15,7 @@ import android.widget.TextView;
 import DatabaseAccessor.APIForSQLiteDB;
 import DatabaseAccessor.EmergencyContacts;
 import DatabaseAccessor.StoreEmergencyContactToServer;
+import DatabaseAccessor.UpdateEmergencyContactInServer;
 import LibraryFunctions.LibraryFunction;
 
 
@@ -67,14 +68,14 @@ public class add_emergency_contacts extends ActionBarActivity {
     }
     public void EmergencyContactCancelBtnPressed(View v){finish();}
     public void EmergencyContactAddBtnPressed(View view){
-        EmergencyContacts em_contact = new EmergencyContacts();
+        EmergencyContacts em_contact_new = new EmergencyContacts();
         boolean flag = true;
         String message = "Please correct the following errors.";
         /*Get Entered Name*/
         EditText text_box = (EditText) findViewById(R.id.add_emergency_contact_name);
         String temp = text_box.getText().toString();
         if(temp.length()!=0){
-            em_contact.Set_NAME(temp.trim());
+            em_contact_new.Set_NAME(temp.trim());
         }else{
             flag=false;
             message=message.concat("Name should not be blank. ");
@@ -83,7 +84,7 @@ public class add_emergency_contacts extends ActionBarActivity {
         text_box = (EditText) findViewById(R.id.add_emergency_contact_email);
         temp = text_box.getText().toString();
         if(temp.length()!=0){
-            em_contact.Set_E_MAIL(temp.trim());
+            em_contact_new.Set_E_MAIL(temp.trim());
         }else{
             flag=false;
             message=message.concat("E-mail should not be blank. ");
@@ -92,7 +93,7 @@ public class add_emergency_contacts extends ActionBarActivity {
         text_box = (EditText) findViewById(R.id.add_emergency_contact_phone);
         temp = text_box.getText().toString();
         if(temp.length()!=0){
-            em_contact.Set_PHONE_NUMBER(temp.trim());
+            em_contact_new.Set_PHONE_NUMBER(temp.trim());
         }else{
             flag=false;
             message=message.concat("Phone Number should not be blank. ");
@@ -116,20 +117,39 @@ public class add_emergency_contacts extends ActionBarActivity {
                     .show();
         }else{
             APIForSQLiteDB obj = new APIForSQLiteDB(this.getApplicationContext());
-            obj.addEmergencyContact(em_contact);
-            new StoreEmergencyContactToServer(this.getApplicationContext()).execute(em_contact);
-            new AlertDialog.Builder(this)
-                    .setTitle("Success")
-                    .setMessage("Your contact has been added successfully")
-                    .setCancelable(true)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.cancel();
-                            finish();
-                        }
-                    })
-                    .setIcon(android.R.drawable.ic_dialog_info)
-                    .show();
+            if(this.em_contact!=null){
+                //Update Existing Contact
+                obj.updateEmergencyContact(this.em_contact,em_contact_new);
+                new UpdateEmergencyContactInServer(this.getApplicationContext()).execute(em_contact_new);
+                new AlertDialog.Builder(this)
+                        .setTitle("Success")
+                        .setMessage("Your contact has been updated successfully")
+                        .setCancelable(true)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                                finish();
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_info)
+                        .show();
+            }else{
+                //Add New Contact
+                obj.addEmergencyContact(em_contact_new);
+                new StoreEmergencyContactToServer(this.getApplicationContext()).execute(em_contact_new);
+                new AlertDialog.Builder(this)
+                        .setTitle("Success")
+                        .setMessage("Your contact has been added successfully")
+                        .setCancelable(true)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                                finish();
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_info)
+                        .show();
+            }
         }
     }
 }
