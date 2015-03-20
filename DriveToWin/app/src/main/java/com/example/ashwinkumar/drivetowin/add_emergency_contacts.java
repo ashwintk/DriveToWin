@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -39,6 +40,8 @@ public class add_emergency_contacts extends ActionBarActivity {
             text_box.setText(em_contact.Get_E_MAIL(), TextView.BufferType.EDITABLE);
             text_box = (EditText) findViewById(R.id.add_emergency_contact_phone);
             text_box.setText(em_contact.Get_PHONE_NUMBER(), TextView.BufferType.EDITABLE);
+            Button btn = (Button) findViewById(R.id.add_btn);
+            btn.setText("Update");
         }
     }
 
