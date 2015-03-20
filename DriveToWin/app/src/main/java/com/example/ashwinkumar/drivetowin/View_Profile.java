@@ -2,6 +2,7 @@ package com.example.ashwinkumar.drivetowin;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -58,7 +59,8 @@ public class View_Profile extends ActionBarActivity {
     }
 
     public void ChangePasswordButtonPressed(View view){
-    //change password intent
+        Intent intent = new Intent(this,Change_Password.class);
+        startActivity(intent);
     }
 
     public void DeleteAllData(){

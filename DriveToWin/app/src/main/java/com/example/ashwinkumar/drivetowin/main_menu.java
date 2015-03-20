@@ -32,7 +32,8 @@ public class main_menu extends ActionBarActivity {
 					case 3:
 						break;
 					case 4:
-						break;
+                        intent=new Intent(getApplicationContext(),View_Profile.class);
+                        break;
 					case 5:
 						intent=new Intent(getApplicationContext(),List_emergency_Contacts.class);
 						break;

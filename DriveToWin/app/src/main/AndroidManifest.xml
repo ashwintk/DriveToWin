@@ -70,6 +70,10 @@
             android:name=".View_Profile"
             android:label="@string/title_activity_view__profile" >
         </activity>
+        <activity
+            android:name=".Change_Password"
+            android:label="@string/title_activity_change__password" >
+        </activity>
     </application>
 
 </manifest>
