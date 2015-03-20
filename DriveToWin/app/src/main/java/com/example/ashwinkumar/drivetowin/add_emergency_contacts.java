@@ -27,7 +27,7 @@ public class add_emergency_contacts extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle extrasBundle = getIntent().getExtras();
-        if(!extrasBundle.isEmpty()){
+        if(getIntent().getExtras()!=null){
             if(extrasBundle.containsKey("edit_emergency_contact")){
                 em_contact = (EmergencyContacts)extrasBundle.getSerializable("edit_emergency_contact");
             }
