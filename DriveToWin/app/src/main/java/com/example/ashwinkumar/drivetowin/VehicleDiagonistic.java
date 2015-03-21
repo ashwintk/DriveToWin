@@ -10,7 +10,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -26,6 +29,10 @@ public class VehicleDiagonistic extends ActionBarActivity {
 	Set<BluetoothDevice> pairedDevices;
 	Integer REQUEST_ENABLE_BT = 1;
 	String deviceAddress;
+	public ObdAdapter obdAdapter;
+	TextView engine;
+	TextView fuel;
+	TextView mileage;
 
 
 	@Override
@@ -62,6 +69,9 @@ public class VehicleDiagonistic extends ActionBarActivity {
 				dialog.dismiss();
 				int position = ((AlertDialog) dialog).getListView().getCheckedItemPosition();
 				deviceAddress = (String) devices.get(position);
+				connectToObd();
+				loadObdData();
+
 			}
 		});
 		alertDialog.setTitle("Choose Bluetooth device");
@@ -69,7 +79,7 @@ public class VehicleDiagonistic extends ActionBarActivity {
 	}
 
 	public void connectToObd(){
-		ObdAdapter obbAdapter = new ObdAdapter(deviceAddress);
+		obdAdapter = new ObdAdapter(deviceAddress);
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,6 +102,14 @@ public class VehicleDiagonistic extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	public void loadObdData(){
+		engine = (TextView)findViewById(R.id.engine_runtime);
+		engine.setText(obdAdapter.getEngineRunTimeData());
+		fuel = (TextView)findViewById(R.id.fuel_level);
+		fuel.setText(obdAdapter.getFuelLevel());
+		mileage = (TextView)findViewById(R.id.mileage);
+		mileage.setText(obdAdapter.getEngineMileage());
+	}
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == REQUEST_ENABLE_BT){

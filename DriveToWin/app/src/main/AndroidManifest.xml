@@ -74,6 +74,14 @@
             android:name=".Change_Password"
             android:label="@string/title_activity_change__password" >
         </activity>
+        <activity
+            android:name=".Trips"
+            android:label="@string/title_activity_trips"
+            android:parentActivityName=".main_menu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ashwinkumar.drivetowin.main_menu" />
+        </activity>
     </application>
 
 </manifest>

@@ -30,6 +30,7 @@ public class main_menu extends ActionBarActivity {
 					case 2:
 						break;
 					case 3:
+						intent = new Intent(getApplicationContext(), Trips.class);
 						break;
 					case 4:
                         intent=new Intent(getApplicationContext(),View_Profile.class);

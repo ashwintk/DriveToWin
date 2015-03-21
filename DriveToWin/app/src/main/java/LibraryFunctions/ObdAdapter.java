@@ -11,6 +11,7 @@ import java.util.UUID;
 import pt.lighthouselabs.obd.commands.SpeedObdCommand;
 import pt.lighthouselabs.obd.commands.engine.EngineRPMObdCommand;
 import pt.lighthouselabs.obd.commands.engine.EngineRuntimeObdCommand;
+import pt.lighthouselabs.obd.commands.fuel.FuelConsumptionRateObdCommand;
 import pt.lighthouselabs.obd.commands.fuel.FuelLevelObdCommand;
 import pt.lighthouselabs.obd.commands.protocol.EchoOffObdCommand;
 import pt.lighthouselabs.obd.commands.protocol.LineFeedOffObdCommand;
@@ -115,7 +116,18 @@ public class ObdAdapter {
 	}
 
     public String getEngineMileage(){
-        //Function to get engine mileage
-        return"";
-    }
+        String mileage = "";
+		FuelConsumptionRateObdCommand fuel = new FuelConsumptionRateObdCommand();
+		while (!Thread.currentThread().isInterrupted()){
+			try {
+				fuel.run(socket.getInputStream(), socket.getOutputStream());
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			mileage =  fuel.getFormattedResult();
+		}
+    	return mileage;
+	}
 }

@@ -43,15 +43,17 @@
     <string name="policy_number">Enter Your Insurance Policy #</string>
     <string name="claim_number">Enter Roadside Assistance Phone #</string>
     <string name="terms_text">By signing up, you accept the terms and conditions of the application</string>
+
     <string-array name="main_menu_items">
-		<item>Drive to win challenge!</item>
-		<item>Vehicle Diagnostics</item>
-		<item>Predictive time</item>
-		<item>My trips</item>
-		<item>View Profile</item>
+        <item>Drive to win challenge!</item>
+        <item>Vehicle Diagnostics</item>
+        <item>Predictive time</item>
+        <item>My trips</item>
+        <item>View Profile</item>
         <item>View Emergency Contacts</item>
         <item>Roadside Assistance</item>
     </string-array>
+
     <string name="go_back">Go Back</string>
     <string name="plus_sign">+</string>
     <string name="enter_name">Enter Name</string>
@@ -78,4 +80,10 @@
     <string name="new_password">Enter New Password</string>
     <string name="conf_new_password">Confirm New Password</string>
     <string name="change_password_btn">Change Password</string>
+    <string name="title_activity_trips">Trips</string>
+	<string name="mileage">Current Mileage</string>
+	<string name="engine_runtime">Engine Run time </string>
+	<string name="fuel_level">Gas- </string>
+
+
 </resources>
